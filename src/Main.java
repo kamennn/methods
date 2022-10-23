@@ -1,32 +1,77 @@
 public class Main {
-    public static void printSeparator(){
-        System.out.println("++++++++++++");
-        System.out.println("------------");
+    public static int calculateDeliveryDays() {
+        int DeliveryDays;
+        return DeliveryDays = 40;
     }
 
-    public static void printIssues(int issueCount) {
-        System.out.println(issueCount);
+    public static boolean deliveryDaysCalculation(int DeliveryDays){
+        return calculateDeliveryDays() > 20;
     }
 
-    public static int sum(int[] numbers) {
-        int sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sum = sum + numbers[i];
-        }
-        return sum;
+    public static boolean deliveryDaysCalculation1(int DeliveryDays){
+        return calculateDeliveryDays() > 60 && calculateDeliveryDays() <= 100;
     }
 
+
+    public static int phoneVersion (){
+        int version;
+        return version = 0;
+    }
+    public static int clientDeviceYear (){
+        int deviceYear;
+        return deviceYear = 2014;
+    }
+
+    public static boolean checkPhoneVersionAndYear(int phoneVersion, int clientDeviceYear) {
+        return phoneVersion == 0 && clientDeviceYear >= 2015;
+    }
+    public static boolean checkPhoneVersionAndYear1(int phoneVersion, int clientDeviceYear) {
+        return phoneVersion == 1 && clientDeviceYear >= 2015;
+    }
+    public static boolean checkPhoneVersionAndYear2(int phoneVersion, int clientDeviceYear) {
+        return phoneVersion == 0 && clientDeviceYear < 2015;
+    }
+    public static boolean checkPhoneVersionAndYear3(int phoneVersion, int clientDeviceYear) {
+        return phoneVersion == 1 && clientDeviceYear < 2015;
+    }
+
+    //задача первая
+
+    public static int subtractedYear (){
+        int year;
+        return year = 2023;
+    }
+    public static boolean leapYearCalculation(int year){
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    }
     public static void main(String[] args) {
-        int[] issuesByMonths = {4, 6, 7, 9, 2, 5, 12, 3, 7, 10, 6, 7, 1, 8};
-        printSeparator();
-        for (int i = 0; i < issuesByMonths.length; i++) {
-            printIssues(issuesByMonths[i]);
-            if ((i + 1) % 3 == 0) {
-                printSeparator();
-            }
+        subtractedYear();
+        if (leapYearCalculation(subtractedYear())) {
+            System.out.println(subtractedYear() + " является високосным");
+        } else {
+            System.out.println(subtractedYear() + " не является високосным");
         }
-        printSeparator();
-        int total = sum(issuesByMonths);
-        printIssues(total);
+        //задача вторая
+
+        if (checkPhoneVersionAndYear(phoneVersion(), clientDeviceYear())) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        } else if (checkPhoneVersionAndYear2(phoneVersion(), clientDeviceYear())) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        } else if (checkPhoneVersionAndYear1(phoneVersion(), clientDeviceYear())) {
+            System.out.println("Установите версию приложения для Android по ссылке");
+        } else if (checkPhoneVersionAndYear3(phoneVersion(), clientDeviceYear())) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        }
+        //третья задача
+        int result = 1;
+        if (deliveryDaysCalculation(calculateDeliveryDays())) {
+            result++;
+        }
+        if (deliveryDaysCalculation1(calculateDeliveryDays())) {
+            result++;
+        } else {
+            System.out.println("Невозможно рассчитать срок доставки");
+        }
+        System.out.println("Потребуется дней " + result);
+        }
     }
-}
