@@ -14,19 +14,6 @@ public class Main {
         return deviceYear = 2014;
     }
 
-    public static boolean checkPhoneVersionAndYear(int phoneVersion, int clientDeviceYear) {
-        if (phoneVersion == 0 && clientDeviceYear >= 2015) {
-            System.out.println("Установите версию приложения для iOS по ссылке");
-        } else if (phoneVersion == 0 && clientDeviceYear < 2015) {
-            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (phoneVersion == 1 && clientDeviceYear >= 2015) {
-            System.out.println("Установите версию приложения для Android по ссылке");
-        } else if (phoneVersion == 1 && clientDeviceYear < 2015) {
-            System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        }
-        return true;
-    }
-
     public static int subtractedYear() {
         int year;
         return year = 2023;
