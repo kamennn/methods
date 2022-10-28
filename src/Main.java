@@ -12,23 +12,28 @@ public class Main {
     }
     private static void printIsLeapResult(int year,boolean yearIsLeap) {
         if (yearIsLeap) {
-            System.out.println(year + "високосный");
+            System.out.println(year + " високосный");
         }else {
-            System.out.println(year + "не является високосным");
+            System.out.println(year + " не является високосным");
         }
+    }
+    public static void main(String[] args) {
+        printIsLeapResult(2000,  isLeap(2000));
+        recommendApplicationVersion(1, 2005);
+        calculateDeliveryDays(90);
     }
 
     public static void recommendApplicationVersion(int clientOS, int deviceYear) {
         boolean deviceIsOld = isDeviceOld(deviceYear);
-        System.out.print("Установите");
+        System.out.print( "Установите");
         if (deviceIsOld) {
-            System.out.print("Lite");
+            System.out.print(" Lite");
         }
-        System.out.println("версию для ");
+        System.out.println(" версию для ");
         if (clientOS == 0) {
-            System.out.println("iOS");
+            System.out.println(" iOS");
         }else {
-            System.out.println("Android");
+            System.out.println(" Android");
         }
     }
 
@@ -37,9 +42,7 @@ public class Main {
         return deviceYear <= currentYear;
     }
 
-    public static void main(String[] args) {
 
-    }
 
     public static void calculateDeliveryDays(int deliveryDistance) {
         int result = 1;
