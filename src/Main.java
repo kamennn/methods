@@ -1,32 +1,59 @@
+import java.time.LocalDate;
+import java.util.Locale;
+
 public class Main {
-    public static void printSeparator(){
-        System.out.println("++++++++++++");
-        System.out.println("------------");
+
+    public static void printIsLeapYear(int year) {
+        boolean yearIsLeap = isLeap(year);
     }
 
-    public static void printIssues(int issueCount) {
-        System.out.println(issueCount);
+    private static boolean isLeap(int year) {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     }
-
-    public static int sum(int[] numbers) {
-        int sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sum = sum + numbers[i];
+    private static void printIsLeapResult(int year,boolean yearIsLeap) {
+        if (yearIsLeap) {
+            System.out.println(year + " високосный");
+        }else {
+            System.out.println(year + " не является високосным");
         }
-        return sum;
     }
-
     public static void main(String[] args) {
-        int[] issuesByMonths = {4, 6, 7, 9, 2, 5, 12, 3, 7, 10, 6, 7, 1, 8};
-        printSeparator();
-        for (int i = 0; i < issuesByMonths.length; i++) {
-            printIssues(issuesByMonths[i]);
-            if ((i + 1) % 3 == 0) {
-                printSeparator();
-            }
+        printIsLeapResult(2000,  isLeap(2000));
+        recommendApplicationVersion(1, 2005);
+        calculateDeliveryDays(90);
+    }
+
+    public static void recommendApplicationVersion(int clientOS, int deviceYear) {
+        boolean deviceIsOld = isDeviceOld(deviceYear);
+        System.out.print( "Установите");
+        if (deviceIsOld) {
+            System.out.print(" Lite");
         }
-        printSeparator();
-        int total = sum(issuesByMonths);
-        printIssues(total);
+        System.out.println(" версию для ");
+        if (clientOS == 0) {
+            System.out.println(" iOS");
+        }else {
+            System.out.println(" Android");
+        }
+    }
+
+    private static boolean isDeviceOld(int deviceYear) {
+        int currentYear = LocalDate.now().getYear();
+        return deviceYear <= currentYear;
+    }
+
+
+
+    public static void calculateDeliveryDays(int deliveryDistance) {
+        int result = 1;
+        if (deliveryDistance > 20) {
+            result++;
+        }
+        if (deliveryDistance > 60 && deliveryDistance <= 100) {
+            result++;
+        } else {
+            System.out.println("Невозможно рассчитать срок доставки");
+        }
+        System.out.println("Потребуется дней " + result);
     }
 }
